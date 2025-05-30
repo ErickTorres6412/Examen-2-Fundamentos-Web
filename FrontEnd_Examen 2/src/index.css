@@ -1,0 +1,376 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Twinkling stars animation */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.8) translateY(0);
+    box-shadow: 0 0 2px 1px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) translateY(-2px);
+    box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.4);
+  }
+}
+
+.animate-twinkle {
+  animation: twinkle 5s infinite ease-in-out;
+}
+
+/* Shooting star animation */
+@keyframes shooting-star {
+  0% {
+    transform: translateX(0) translateY(0) rotate(45deg);
+    opacity: 1;
+    width: 0;
+    box-shadow: 0 0 0 white;
+  }
+  10% {
+    width: 100px;
+    height: 2px;
+    box-shadow: 0 0 10px 4px white;
+  }
+  100% {
+    transform: translateX(1000px) translateY(1000px) rotate(45deg);
+    opacity: 0;
+    width: 0;
+  }
+}
+
+.animate-shooting-star {
+  animation: shooting-star 10s infinite linear;
+  animation-iteration-count: 1;
+}
+
+/* Cloud movement animation */
+@keyframes float-cloud {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+.animate-float-cloud {
+  animation: float-cloud 120s linear infinite;
+}
+
+/* Gentle floating animation for sun/moon */
+@keyframes gentle-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-gentle-float {
+  animation: gentle-float 8s infinite ease-in-out;
+}
+
+/* Sunrise animation */
+@keyframes sunrise {
+  0%,
+  100% {
+    transform: translateY(10px);
+    opacity: 0.7;
+    box-shadow: 0 0 40px 20px rgba(255, 165, 0, 0.4);
+  }
+  50% {
+    transform: translateY(0);
+    opacity: 0.9;
+    box-shadow: 0 0 60px 30px rgba(255, 165, 0, 0.6);
+  }
+}
+
+.animate-sunrise {
+  animation: sunrise 10s infinite ease-in-out;
+}
+
+/* Sunset animation */
+@keyframes sunset {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.7;
+    box-shadow: 0 0 40px 20px rgba(255, 69, 0, 0.4);
+  }
+  50% {
+    transform: translateY(-10px);
+    opacity: 0.9;
+    box-shadow: 0 0 60px 30px rgba(255, 69, 0, 0.6);
+  }
+}
+
+.animate-sunset {
+  animation: sunset 10s infinite ease-in-out;
+}
+
+/* Moon glow animation */
+@keyframes glow {
+  0%,
+  100% {
+    opacity: 0.8;
+    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.5);
+  }
+}
+
+.animate-glow {
+  animation: glow 8s infinite ease-in-out;
+}
+
+/* Slow pulse animation */
+@keyframes pulse-slow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+    box-shadow: 0 0 60px 30px rgba(255, 255, 0, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+    box-shadow: 0 0 80px 40px rgba(255, 255, 0, 0.6);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s infinite ease-in-out;
+}
+
+/* Logo pulse animation */
+@keyframes logo-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  }
+}
+
+.animate-logo-pulse {
+  animation: logo-pulse 3s infinite ease-in-out;
+}
+
+/* Text shimmer animation */
+@keyframes text-shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-text-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shimmer 3s infinite linear;
+}
+
+/* Card glow animation */
+@keyframes card-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+  }
+}
+
+.animate-card-glow {
+  animation: card-glow 4s infinite ease-in-out;
+}
+
+/* Christmas card glow animation */
+@keyframes christmas-card-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 255, 0, 0.4);
+  }
+}
+
+.animate-christmas-card-glow {
+  animation: christmas-card-glow 4s infinite ease-in-out;
+}
+
+/* Halloween card glow animation */
+@keyframes halloween-card-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(128, 0, 128, 0.4);
+  }
+}
+
+.animate-halloween-card-glow {
+  animation: halloween-card-glow 4s infinite ease-in-out;
+}
+
+/* Christmas logo pulse animation */
+@keyframes christmas-logo-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(255, 0, 0, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.6);
+  }
+}
+
+.animate-christmas-logo-pulse {
+  animation: christmas-logo-pulse 3s infinite ease-in-out;
+}
+
+/* Halloween logo pulse animation */
+@keyframes halloween-logo-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(255, 165, 0, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(128, 0, 128, 0.6);
+  }
+}
+
+.animate-halloween-logo-pulse {
+  animation: halloween-logo-pulse 3s infinite ease-in-out;
+}
+
+/* Pulsing text animation */
+@keyframes pulse-text {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-pulse-text {
+  animation: pulse-text 4s infinite ease-in-out;
+}
+
+/* Snow falling animation */
+@keyframes snow {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(100px);
+    opacity: 0;
+  }
+}
+
+.animate-snow {
+  animation: snow linear forwards;
+}
+
+/* Christmas lights animation */
+@keyframes christmas-lights {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+}
+
+.animate-christmas-lights {
+  animation: christmas-lights 1s infinite ease-in-out;
+}
+
+/* Bat flying animation */
+@keyframes bat {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(50px) translateY(-30px);
+  }
+  50% {
+    transform: translateX(100px) translateY(0);
+  }
+  75% {
+    transform: translateX(50px) translateY(30px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+
+.animate-bat {
+  animation: bat 10s infinite ease-in-out;
+}
+
+/* Bat wing animation */
+@keyframes bat-wing {
+  0%,
+  100% {
+    transform: rotate(-20deg);
+  }
+  50% {
+    transform: rotate(-60deg);
+  }
+}
+
+.animate-bat-wing {
+  animation: bat-wing 0.5s infinite ease-in-out;
+}
+
+/* Bat wing reverse animation */
+@keyframes bat-wing-reverse {
+  0%,
+  100% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(60deg);
+  }
+}
+
+.animate-bat-wing-reverse {
+  animation: bat-wing-reverse 0.5s infinite ease-in-out;
+}
