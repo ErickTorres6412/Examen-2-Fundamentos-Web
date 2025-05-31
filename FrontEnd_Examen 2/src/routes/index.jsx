@@ -7,6 +7,7 @@ import ProtectedRoute from './ProtectedRoute';
 import Dashboard from '../pages/Dashboard/Dashboard';
 import Login from '../pages/Login/Login';
 import Departamentos from '../pages/Departamentos/Departamentos';
+import Personas from '../pages/Person/Personas';
 
 // Componente para manejar la redirección de la raíz
 const RootRedirect = () => {
@@ -81,33 +82,14 @@ const router = createBrowserRouter(
         } 
       />
 
-      {/* Más rutas protegidas */}
-      {/* 
-      <Route
-        path="/usuarios"
+      <Route 
+        path="/personas" 
         element={
           <ProtectedRoute>
-            <Usuarios />
+            <Personas />
           </ProtectedRoute>
-        }
+        } 
       />
-      <Route
-        path="/configuracion"
-        element={
-          <ProtectedRoute>
-            <Configuracion />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/reportes"
-        element={
-          <ProtectedRoute>
-            <Reportes />
-          </ProtectedRoute>
-        }
-      />
-      */}
 
       {/* Ruta para manejar 404 - redirige según autenticación */}
       <Route path="*" element={<RootRedirect />} />

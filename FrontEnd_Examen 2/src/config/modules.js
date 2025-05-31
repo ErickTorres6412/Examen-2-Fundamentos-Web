@@ -1,4 +1,4 @@
-import { Package } from 'lucide-react';
+import { Package, User } from 'lucide-react';
 
 const modules = [
   {
@@ -6,6 +6,13 @@ const modules = [
     icon: Package,
     subItems: [
       { label: 'Departamentos', link: '/departamentos' }
+    ]
+  },
+  {
+    title: 'Personas',
+    icon: User,
+    subItems: [
+      { label: 'Personas', link: '/personas' }
     ]
   }
 ];

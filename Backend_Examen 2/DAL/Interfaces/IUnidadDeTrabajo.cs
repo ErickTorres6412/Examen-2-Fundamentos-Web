@@ -8,6 +8,9 @@ namespace DAL.Interfaces
 {
     public interface IUnidadDeTrabajo : IDisposable
     {
+        IDepartmentDAL DepartmentDAL { get; }
+        IPersonDAL PersonDAL { get; }
+
         void Complete();
     }
 }

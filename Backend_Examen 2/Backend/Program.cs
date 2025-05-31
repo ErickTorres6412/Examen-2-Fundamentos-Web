@@ -1,5 +1,6 @@
 using Backend.Services.Implementations;
 using Backend.Services.Interfaces;
+using Backend.Services.Implementations;
 using DAL.Implementation;
 using DAL.Interfaces;
 using Entities.Entities;
@@ -8,10 +9,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using BackEnd.Services.Implementations;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
 builder.Services.AddControllers();
 
@@ -32,16 +33,12 @@ builder.Services.AddSwaggerGen();
 #region Serilog
 
 builder.Logging.ClearProviders();
-//builder.Host.UseSerilog((ctx, lc) => lc
-//                        .WriteTo
-//                        .File("logs/logsbackend", rollingInterval: RollingInterval.Day)
-//                        .MinimumLevel.Error());
 
 #endregion
 
 #region DB
 
-builder.Services.AddDbContext<PruContext>(
+builder.Services.AddDbContext<QuizContext>(
                                 options =>
                                 options.UseSqlServer(
                                     builder
@@ -109,8 +106,14 @@ builder.Services.AddAuthentication(options =>
 
 #region DI
 builder.Services.AddScoped<IUnidadDeTrabajo, UnidadDeTrabajo>();
-
 builder.Services.AddScoped<ITokenService, TokenService>();
+
+builder.Services.AddScoped<IDepartmentDAL, DepartmentDALImpl>();
+builder.Services.AddScoped<IDepartmentService, DepartmentService>();
+
+builder.Services.AddScoped<IPersonDAL, PersonDALImpl>();
+builder.Services.AddScoped<IPersonService, PersonService>();
+
 #endregion
 
 
@@ -128,8 +131,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-//app.UseMiddleware<ApiKeyMiddleware>();
+app.UseMiddleware<ApiKeyMiddleware>();
 
+app.UseAuthentication(); // Agregar esta línea antes de UseAuthorization
 app.UseAuthorization();
 
 app.MapControllers();

@@ -52,8 +52,6 @@ namespace Backend.Controllers
 
         }
 
-
-
         [HttpPost]
         [Route("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDTO model)

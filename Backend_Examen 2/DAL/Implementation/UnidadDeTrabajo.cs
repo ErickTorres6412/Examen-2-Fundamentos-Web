@@ -11,11 +11,15 @@ namespace DAL.Implementation
     public class UnidadDeTrabajo : IUnidadDeTrabajo
     {
 
-        PruContext context;
+        QuizContext context;
+        public IDepartmentDAL DepartmentDAL { get; set; }
+        public IPersonDAL PersonDAL { get; set; }
 
-        public UnidadDeTrabajo(PruContext context)
+        public UnidadDeTrabajo(QuizContext context, IDepartmentDAL departmentDAL, IPersonDAL personDAL)
         {
             this.context = context;
+            DepartmentDAL = departmentDAL;
+            PersonDAL = personDAL;
         }
         public void Dispose()
         {

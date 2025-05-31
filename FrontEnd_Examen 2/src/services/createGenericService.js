@@ -1,11 +1,10 @@
-// src/services/genericService.js
-import axios from 'axios';
-import { API_BASE_URL } from '../config/config';
+import { api } from './api'; // Usa la misma instancia que funciona
 
 export const createGenericService = (baseEndpoint) => ({
   getAll: async () => {
     try {
-      const response = await axios.get(`${API_BASE_URL}${baseEndpoint}`);
+      console.log(`📋 Obteniendo todos los elementos de: ${baseEndpoint}`);
+      const response = await api.get(baseEndpoint);
       return response.data;
     } catch (error) {
       console.error(`Error fetching items from ${baseEndpoint}:`, error);
@@ -15,7 +14,8 @@ export const createGenericService = (baseEndpoint) => ({
 
   getById: async (id) => {
     try {
-      const response = await axios.get(`${API_BASE_URL}${baseEndpoint}/${id}`);
+      console.log(`🔍 Obteniendo elemento ${id} de: ${baseEndpoint}`);
+      const response = await api.get(`${baseEndpoint}/${id}`);
       return response.data;
     } catch (error) {
       console.error(`Error fetching item with id ${id} from ${baseEndpoint}:`, error);
@@ -25,7 +25,8 @@ export const createGenericService = (baseEndpoint) => ({
 
   create: async (data) => {
     try {
-      const response = await axios.post(`${API_BASE_URL}${baseEndpoint}`, data);
+      console.log(`➕ Creando elemento en: ${baseEndpoint}`, data);
+      const response = await api.post(baseEndpoint, data);
       return response.data;
     } catch (error) {
       console.error(`Error creating item in ${baseEndpoint}:`, error);
@@ -35,8 +36,8 @@ export const createGenericService = (baseEndpoint) => ({
 
   update: async (data) => {
     try {
-      // Envía la solicitud a /api/Empleado sin incluir el ID en la URL
-      const response = await axios.put(`${API_BASE_URL}${baseEndpoint}`, data);
+      console.log(`✏️ Actualizando elemento en: ${baseEndpoint}`, data);
+      const response = await api.put(baseEndpoint, data);
       return response.data;
     } catch (error) {
       console.error(`Error updating item in ${baseEndpoint}:`, error);
@@ -46,7 +47,8 @@ export const createGenericService = (baseEndpoint) => ({
 
   delete: async (id) => {
     try {
-      const response = await axios.delete(`${API_BASE_URL}${baseEndpoint}/${id}`);
+      console.log(`🗑️ Eliminando elemento ${id} de: ${baseEndpoint}`);
+      const response = await api.delete(`${baseEndpoint}/${id}`);
       return response.data;
     } catch (error) {
       console.error(`Error deleting item with id ${id} from ${baseEndpoint}:`, error);

@@ -1,0 +1,13 @@
+﻿using Backend.DTO;
+
+namespace Backend.Services.Interfaces
+{
+    public interface IPersonService
+    {
+        List<PersonDTO> GetPersons();
+        PersonDTO GetPersonById(int id);
+        PersonDTO AddPerson(PersonDTO person);
+        PersonDTO UpdatePerson(PersonDTO person);
+        PersonDTO DeletePerson(int id);
+    }
+}
